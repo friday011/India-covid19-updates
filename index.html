@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ea67b1a010.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" media="screen and (max-width: 1500px)" href="css/mobile.css">
+    <title>IndiaCovidUpdates</title>
+</head>
+
+<body>
+    <header id="head-area">
+        <div class="header-bar">
+            <div class="container">
+                <div class="header-area">
+                    <div class="header-para">
+                        <a href="index.html" class="logo-text">India COVID-19 Updates</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="head-content">
+            <div class="country-info-row">
+                <div class="info-row">
+                    <div class="stats">
+                        <div class="country-details">
+                            <h1 class="india-heading accent-font">India</>
+                                <img src="img/icons/india (1).png" alt="India-Flag" class="show-mob">
+                        </div>
+                        <h3 class="medium-small py-05">#IndiaFightsCOVID19</h3>
+                        <p class="total py-05">Population : <span id="population"></span> <span
+                                class="s-span">(approx.)</span></p>
+                        <a target="_" href="https://www.mohfw.gov.in/">Ministry of Health & Family Welfare</a>
+                    </div>
+                    <div class="rest">
+                        <img src="img/icons/india.png" class="hide-mob" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="case-info-row">
+                <div class="confirmed-info card">
+                    <p class="card-heading medium-small">Total Confirmed Cases</p>
+                    <div class="stats">
+                        <p id="total-confirmed-cases" class="big confirmed-color number-text">0</p>
+                    </div>
+                </div>
+                <div class="active-info card">
+                    <p class="card-heading medium-small">Currently Active Cases</p>
+                    <div class="stats">
+                        <p id="total-active-cases" class="big active-color number-text">0</p>
+                    </div>
+                </div>
+                <div class="recovered-info card">
+                    <p class="card-heading medium-small">Total Recovered</p>
+                    <div class="stats">
+                        <p id="total-recovered-cases" class="big recovered-color number-text">0</p>
+                    </div>
+                </div>
+                <div class="deaths-info card">
+                    <p class="card-heading medium-small">Deceased</p>
+                    <div class="stats">
+                        <p id="total-death-cases" class="big death-color number-text">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-row">
+                <p id="summary-last-updated"></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="precaution-cards">
+        <div class="precaution-grid-area">
+            <div class="prec-grid-item1 grid-box-horz card to-hide-tab" data-aos="fade-up">
+                <div class="box-image">
+                    <img src="img/icons/diet.png" alt="">
+                </div>
+                <p class="box-para-horz">Eating a healthy diet is very important during the COVID-19 pandemic. What we
+                    eat and drink can affect our body’s ability to prevent, fight and recover from infections.</p>
+            </div>
+            <div class="prec-grid-item2 grid-box-horz card" data-aos="fade-up">
+                <div class="box-image">
+                    <img src="img/icons/washing-hands.png" alt="">
+                </div>
+                <p class="box-para-horz">Regularly and thoroughly clean your hands with an alcohol-based hand rub or
+                    wash them with soap and water. These kill viruses that may be on your hands.</p>
+            </div>
+            <div class="prec-grid-item3 grid-box-horz card" data-aos="fade-up">
+                <div class="box-image">
+                    <img src="img/icons/distance.png" alt="">
+                </div>
+                <p class="box-para-horz">Avoid going to crowded places. You are more likely to come into close contact
+                    with someone that has COVID-19 and it is more difficult to maintain physical distance of 1 metre (3
+                    feet).</p>
+            </div>
+            <div class="prec-grid-item4 grid-box-horz card" data-aos="fade-up">
+                <div class="box-image">
+                    <img src="img/icons/face.png" alt="">
+                </div>
+                <p class="box-para-horz">Avoid touching eyes, nose and mouth. Hands touch many surfaces and can
+                    pick up viruses. From there, the virus can enter your body and infect you.</p>
+            </div>
+            <div class="prec-grid-item5 grid-box-horz card" data-aos="fade-up">
+                <div class="box-image">
+                    <img src="img/icons/stay-home.png" alt="">
+                </div>
+                <p class="box-para-horz">Stay home and self-isolate even with minor symptoms such as cough, headache,
+                    mild fever, until you recover. Have someone bring you supplies. If you need to leave your house,
+                    wear a mask.</p>
+            </div>
+            <div class="prec-grid-item6 grid-box-horz card to-hide-tab" data-aos="fade-up">
+                <div class="box-image">
+                    <img src="img/icons/exercise.png" alt="">
+                </div>
+                <p class="box-para-horz">Regular physical activity benefits both the body and mind. It can reduce high
+                    blood pressure, help manage weight and reduce the risk of heart disease, stroke, type 2 diabetes,
+                    and various cancers.</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="testing-data-area">
+        <div class="container">
+            <h2 class="medium">Day-Wise Details</h2>
+            <div class="daily-test-data">
+                <div class="daily-search-row">
+                    <div class="search-items">
+                        <label for="">Select a Date to show it's data.</label>
+                        <input type="date" name="date" id="date-select" class="card">
+                    </div>
+                    <div class="error"></div>
+                </div>
+                <div class="daily-data card">
+                    <div class="daily-data-grid">
+                        <p class="daily-date py-05">Date : <span id="daily-date"
+                                class="death-color medium-small">00/00/0000</span></p>
+                        <p class="daily-confirmed medium py-05">Confirmed : <span id="daily-confirmed-data"
+                                class="confirmed-color medium">0</span></p>
+                        <p class="daily-recovered medium-small py-05">Recovered : <span id="daily-recovered-data"
+                                class="recovered-color medium">0</span></p>
+                        <p class="daily-deaths medium-small py-05">Deaths : <span id="daily-death-data"
+                                class="death-color medium">0</span></p>
+                        <p class="daily-samples medium-small py-05">Samples Reported : <span id="daily-samples-data"
+                                class="medium-small">0</span></p>
+                        <p class="daily-rtpcr medium-small py-05">RT-PCR Tests Conducted : <span id="daily-rtpcr-data"
+                                class="medium-small">0</span></p>
+                        <p class="medium-small py-05">Tests per Million : <span id="test-per-million"
+                                class="medium-small">0</span></p>
+                        <p class="medium-small py-05">Test Positivity Rate : <span id="positivity-rate"
+                                class="medium-small">00.0</span>
+                    </div>
+                    <div class="tests-as-of">
+                        <p id="test-last-updated" class="test-last-updated py-05"></p>
+                        <p class="sample-tested medium-small py-05">Total Samples Tested : <span id="total-tests"
+                                class="medium">0</span></p>
+                        <p class="rtpcr-done medium-small py-05">Total RT-PCR tests : <span id="total-rtpcr-tests"
+                                class="medium">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="precaution-cards">
+        <div class="precaution-grid-area">
+            <div class="prec-grid-item1 grid-box-horz card to-hide-tab" data-aos="fade-up">
+                <div class="box-image">
+                    <img src="img/icons/no-smoking.png" alt="">
+                </div>
+                <p class="box-para-horz">Smokers have a higher risk of getting coronavirus because they are constantly
+                    putting their hands to their lips. Quit today to reduce these risks and start living a healthier
+                    life.
+                </p>
+            </div>
+            <div class="prec-grid-item2 grid-box-horz card" data-aos="fade-up">
+                <div class="box-image">
+                    <img src="img/icons/hinduism.png" alt="">
+                </div>
+                <p class="box-para-horz">You should avoid shaking hands because of the new coronavirus. Greet people
+                    with a
+                    wave, a nod or a bow instead.</p>
+            </div>
+            <div class="prec-grid-item3 grid-box-horz card" data-aos="fade-up">
+                <div class="box-image">
+                    <img src="img/icons/face-mask.png" alt="">
+                </div>
+                <p class="box-para-horz">Make sure you, and the people around you, follow good respiratory hygiene. This
+                    means covering your mouth and nose with tissue when you cough or sneeze. Then dispose of the used
+                    tissue immediately.</p>
+            </div>
+            <div class="prec-grid-item4 grid-box-horz card" data-aos="fade-up">
+                <div class="box-image">
+                    <img src="img/icons/social-distancing.png" alt="">
+                </div>
+                <p class="box-para-horz">Maintain at least 1 metre (3 feet) distance between yourself and others. If you
+                    are too close, you can breathe in the droplets, including the COVID-19 virus if the person has the
+                    disease.</p>
+            </div>
+            <div class="prec-grid-item5 grid-box-horz card" data-aos="fade-up">
+                <div class="box-image">
+                    <img src="img/icons/sick.png" alt="">
+                </div>
+                <p class="box-para-horz">If you have a fever, cough and difficulty breathing, seek medical attention,
+                    but call by telephone in advance if possible and follow the directions of your local health
+                    authority.
+                </p>
+            </div>
+            <div class="prec-grid-item6 grid-box-horz card to-hide-tab" data-aos="fade-up">
+                <div class="box-image">
+                    <img src="img/icons/knowledge.png" alt="">
+                </div>
+                <p class="box-para-horz">Keep up to date on the latest information from trusted sources, such as WHO or
+                    your local and national health authorities.</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="states-data-area">
+        <div class="container">
+            <h2 class="medium">State-Wise Summary</h2>
+            <div class="search-box">
+                <input id="states-search" class="card" type="text" placeholder="Click to Search for your State">
+            </div>
+            <div class="tip-box">
+                <p>Click on any State's name to view it's detailed information.</p>
+            </div>
+            <div class="state-summary">
+                <h4 class="py-05">A Brief Summary :</h4>
+                <p class="py-05">
+                    <i class="fas fa-chevron-circle-right"></i> <span id="state-name-worst" class="medium-small"></span>
+                    is the worst affected state with <span id="state-case-worst" class="medium-small">0</span> confirmed
+                    cases.</p>
+                <p class="py-05">
+                    <i class="fas fa-chevron-circle-right"></i> <span id="state-test-best-name"
+                        class="medium-small"></span> has the highest number of tests conducted in India with <span
+                        id="state-test-best-tests" class="medium-small">0</span> tests.</p>
+                <p class="py-05">
+                    <i class="fas fa-chevron-circle-right"></i> <span id="state-death-worst-name"
+                        class="medium-small"></span> is the state with the highest number of deaths, i.e <span
+                        id="state-death-worst-deaths" class="medium-small">0</span>.</p>
+                <p class="py-05">
+                    <i class="fas fa-chevron-circle-right"></i> The top 3 worst affected states currently are :
+                <ul>
+                    <li class="py-05"><span id="state-name-worst" class="medium-small"></span> : <span
+                            id="state-case-worst" class="confirmed-color medium-small">0</span> / <span
+                            id="state-active-worst" class="active-color medium-small">0</span> / <span
+                            id="state-recovered-worst" class="recovered-color medium-small">0</span> / <span
+                            id="state-death-worst" class="death-color medium-small">0</span></li>
+                    <li class="py-05"><span id="state-name-worse" class="medium-small"></span> : <span
+                            id="state-case-worse" class="confirmed-color medium-small">0</span> / <span
+                            id="state-active-worse" class="active-color medium-small">0</span> / <span
+                            id="state-recovered-worse" class="recovered-color medium-small">0</span> / <span
+                            id="state-death-worse" class="death-color medium-small">0</span></li>
+                    <li class="py-05"><span id="state-name-bad" class="medium-small"></span> : <span id="state-case-bad"
+                            class="confirmed-color medium-small">0</span> / <span id="state-active-bad"
+                            class="active-color medium-small">0</span> / <span id="state-recovered-bad"
+                            class="recovered-color medium-small">0</span> / <span id="state-death-bad"
+                            class="death-color medium-small">0</span></li>
+                </ul>
+                </p>
+            </div>
+            <div class="state-error">
+                <p class="state-error-prompt confirmed-color py-01">Please enter a valid State name.</p>
+            </div>
+            <div class="state-data"></div>
+        </div>
+    </section>
+
+    <footer id="footer-area">
+        <div class="container">
+            <div class="footer-row">
+                <h3 class="py-05">#TogetherAgainstCovid19</h3>
+                <div class="footer-icons py-05">
+                    <a target="_" href="https://github.com/friday011"><i class="fab fa-github fa-2x"></i></a>
+                    <a target="_" href="https://twitter.com/MoHFW_INDIA?s=20"><i class="fab fa-twitter fa-2x"></i></a>
+                </div>
+                <div class="footer-text py-05">
+                    <p>All Rights Reserved &copy; 2020</p>
+                    <p>Coded By : Rishabh Dixit</p>
+                </div>
+                <div class="footer-text to-hide-mob">
+                    <p>Icons used from <a href="https://www.flaticon.com/">Flaticon</a> & <a
+                            href="https://fontawesome.com/">FontAwesome</a></p>
+                    <p>Credit Where Credit's Due</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offest: 150,
+            duration: 500
+        });
+    </script>
+
+    <script src="js/covid_api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

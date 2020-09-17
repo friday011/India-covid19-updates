@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ea67b1a010.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" media="screen and (max-width: 1500px)" href="css/mobile.css">
+    <title>IndiaCovidUpdates</title>
+</head>
+
+<body>
+    <header id="head-area">
+        <div class="header-bar">
+            <div class="container">
+                <div class="header-area">
+                    <div class="header-para">
+                        <p class="logo-text">India COVID-19 Updates</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="head-content">
+            <div class="state-info-row">
+                <div class="info-row">
+                    <div class="rest">
+                        <!-- <img src="./img/states/Delhi.png" alt=""> -->
+                    </div>
+                    <div class="stats">
+                        <h1><span id="state-name"></span> , IN</h1>
+                        <p class="medium-small py-05">Migrated : <span id="state-migrated">0</span></p>
+                        <p class="medium-small">Tested : <span id="state-tested">0</span></p>
+                        <p class="py-05">Total Population : <span id="state-population">0</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="case-info-row">
+                <div class="confirmed-info card">
+                    <p class="card-heading medium-small">Total Confirmed Cases</p>
+                    <div class="stats">
+                        <p id="state-confirmed" class="big confirmed-color number-text">0</p>
+                    </div>
+                </div>
+                <div class="active-info card">
+                    <p class="card-heading medium-small">Currently Active Cases</p>
+                    <div class="stats">
+                        <p id="state-active" class="big active-color number-text">0</p>
+                    </div>
+                </div>
+                <div class="recovered-info card">
+                    <p class="card-heading medium-small">Total Recovered</p>
+                    <div class="stats">
+                        <p id="state-recovered" class="big recovered-color number-text">0</p>
+                    </div>
+                </div>
+                <div class="deaths-info card">
+                    <p class="card-heading medium-small">Deceased</p>
+                    <div class="stats">
+                        <p id="state-deaths" class="big death-color number-text">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-row">
+                <p id="summary-last-updated"></p>
+                <a href="" id="state-source">Source</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="extra-info-cards">
+        <div class="container">
+            <div class="info-grid-area">
+                <div class="extra-row-1">
+                    <div class="grid-item-1 card" data-aos="fade-up">
+                        <div class="stats">
+                            <p class="py-05">Confirmed Per Million</p>
+                            <p id="confirmed-per-million" class="confirmed-color py-05">0</p>
+                        </div>
+                    </div>
+                    <div class="grid-item-2 card" data-aos="fade-up">
+                        <div class="stats">
+                            <p class="py-05">Tests per Million</p>
+                            <p id="tests-per-million" class="py-05">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="extra-row-2">
+                    <div class="grid-item-3 card" data-aos="fade-up">
+                        <div class="stats">
+                            <p class="py-05">Active Ratio</p>
+                            <p id="active-ratio" class="active-color py-05">0</p>
+                        </div>
+                    </div>
+                    <div class="grid-item-4 card" data-aos="fade-up">
+                        <div class="stats">
+                            <p class="py-05">Recovery Ratio</p>
+                            <p id="recovery-ratio" class="recovered-color py-05">0</p>
+                        </div>
+                    </div>
+                    <div class="grid-item-5 card" data-aos="fade-up">
+                        <div class="stats">
+                            <p class="py-05">Fatality Ratio</p>
+                            <p id="fatality-ratio" class="death-color py-05">0</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="state-notes">
+        <div class="container">
+            <h3 class="py-05">Notes</h3>
+            <div class="notes">
+
+            </div>
+        </div>
+    </section>
+
+    <section id="district-info-area">
+        <div class="container">
+            <h2>District-Wise Details</h2>
+            <div class="search-box">
+                <input id="district-search" class="card" type="text" placeholder="Click to Search for your District">
+            </div>
+            <div class="state-summary">
+                <h4 class="py-05">A Brief Summary :</h4>
+                <p class="py-05">
+                    <i class="fas fa-chevron-circle-right"></i> The <span class="medium-small">3</span> worst affected
+                    districts in <span id="name-State" class="medium-small"></span> are :
+                <ul>
+                    <li class="py-05"><span id="district-name-worst" class="medium-small"></span> : <span
+                            id="district-case-worst" class="confirmed-color medium-small">0</span> / <span
+                            id="district-recovered-worst" class="recovered-color medium-small">0</span> / <span
+                            id="district-death-worst" class="death-color medium-small">0</span>
+                    </li>
+                    <li class="py-05"><span id="district-name-worse" class="medium-small"></span> : <span
+                            id="district-case-worse" class="confirmed-color medium-small">0</span> / <span
+                            id="district-recovered-worse" class="recovered-color medium-small">0</span> / <span
+                            id="district-death-worse" class="death-color medium-small">0</span>
+                    </li>
+                    <li class="py-05"><span id="district-name-bad" class="medium-small"></span> : <span
+                            id="district-case-bad" class="confirmed-color medium-small">0</span> / <span
+                            id="district-recovered-bad" class="recovered-color medium-small">0</span> / <span
+                            id="district-death-bad" class="death-color medium-small">0</span>
+                    </li>
+                </ul>
+                </p>
+            </div>
+            <div class="state-error">
+                <p class="state-error-prompt confirmed-color py-01">Please enter a valid District name.</p>
+            </div>
+            <div class="state-data"></div>
+        </div>
+    </section>
+
+    <footer id="footer-area">
+        <div class="container">
+            <div class="footer-row">
+                <h3 class="py-05">#TogetherAgainstCovid19</h3>
+                <div class="footer-icons py-05">
+                    <a href="https://github.com/friday011"><i class="fab fa-github fa-2x"></i></a>
+                    <a href="https://twitter.com/MoHFW_INDIA?s=20"><i class="fab fa-twitter fa-2x"></i></a>
+                </div>
+                <div class="footer-text py-05">
+                    <p>All Rights Reserved &copy; 2020</p>
+                    <p>Coded By : Rishabh Dixit</p>
+                </div>
+                <div class="footer-text to-hide-mob">
+                    <p>Icons used from <a href="https://www.flaticon.com/authors/flat-icons">Flaticon</a> & <a
+                            href="https://fontawesome.com/">FontAwesome</a></p>
+                    <p>Credit Where Credit's Due</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offest: 150,
+            duration: 500
+        });
+    </script>
+
+    <script src="js/covid_api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/state.js"></script>
+
+</body>
+
+</html>

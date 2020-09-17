@@ -1,0 +1,432 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    background: #EDF2F9;
+    color: #5E6E82;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h2 {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+section { margin: 3rem 0; }
+
+.big { font-size: 2.5rem; margin: 0.5rem 0; }
+.medium { font-size: 2rem; }
+.medium-small { font-size: 1.5rem; }
+.s-span { font-size: 0.75rem; }
+.py-05 { padding: 0.5rem 0; }
+.py-025 { padding: 0.25rem 0; }
+.selected { color: #2C7BE5; }
+.accent-font { color: #24292E; }
+.pyb-1 { padding-bottom: 1rem; }
+img.show-mob { display: none; }
+
+.card-heading {
+    background: #EDF2F9;
+    padding: 0.5rem;
+    text-align: center;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.card-bottom {
+    background: #F9FAFD;
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.card {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 2.5px #EDF2F9 solid;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1rem;
+}
+
+#head-area { height: 100vh; }
+
+.header-bar {
+    margin: 0.5rem 0;
+}
+
+.header-bar .header-area {
+    border-radius: 0.75rem;
+    padding: 0.75rem 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.header-bar .header-area .header-para {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+#head-area .head-content {
+    max-width: 1200px;
+    margin: auto;
+    height: 100%;
+    padding: 1rem;
+}
+
+.head-content .country-info-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40%;
+    text-align: center;
+}
+
+.head-content .case-info-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    height: 45%;
+    gap: 1rem;
+}
+
+.head-content .text-row {
+    height: 5%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.head-content .country-info-row .info-row {
+    display: flex;
+    justify-content: center;
+}
+
+.stats-plus-icon {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+.stats {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rest {
+    margin-left: 2rem;
+}
+
+.country-info-row .country-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.country-info-row .country-details img { margin: 0 0.75rem; }
+
+.country-info-row .country-details .india-heading {
+    font-size: 3rem;
+    margin-right: 0.5rem;
+}
+
+.confirmed-color { color: #e63946; }
+.recovered-color { color: #90be6d; }
+.active-color { color: #1C9BE9; }
+.death-color { color: #adb5bd; }
+
+.confirmed-info, .active-info, .deaths-info,.recovered-info, .daily-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* States Summary */
+
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.search-box input {
+    width: 20rem;
+    align-self: center;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 0.75rem 1rem;
+    outline: none;
+    background: #F9FAFD;
+    border: none;
+    color: #5E6E82;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    width: 25rem;
+    text-align: left;
+}
+
+.state-summary { padding: 2rem; }
+.state-summary li { margin-left: 5rem; }
+.state-summary i { margin-right: 0.5rem; }
+
+.state-summary h4 {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.state-error {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.state-data {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.state-data .state-row {
+    border: 2.5px #EDF2F9 solid;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+    border-radius: 1rem;
+    margin: 0.5rem 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.state-data .state-row:hover { transform: translateY(-5px); }
+
+.state-name-item {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F9FAFD;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem
+}
+
+.state-confirmed-item {
+    grid-row: 2;
+    grid-column: 1 / span 2;
+}
+
+.tip-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.25rem 0;
+    text-align: center;
+}
+
+.state-name-item a:hover { text-decoration: underline; }
+
+/* Precaution Cards */
+
+.precaution-cards {
+    margin: 3rem 0;
+    height: 30rem;
+    padding: 1rem;
+}
+
+.precaution-cards .precaution-grid-area {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.grid-box-vert {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background: #F9FAFD;
+    text-align: center;
+}
+
+.grid-box-horz {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    background: #F9FAFD;
+    text-align: center;
+}
+
+.box-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-para-horz { flex: 2; padding: 0 0.5rem;}
+
+/* Testing Data */
+
+#testing-data-area {
+    margin: 3rem 0;
+}
+
+#testing-data-area .daily-test-data {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+#testing-data-area .daily-test-data .daily-search-row .search-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+#testing-data-area .daily-test-data input {
+    margin-left: 1rem;
+    padding: 0.25rem 1rem;
+    font-size: 1.25rem;
+    outline: none;
+}
+
+#testing-data-area .daily-data { margin: 2rem 0; padding: 0.5rem;}
+
+#testing-data-area .daily-data .daily-data-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+#testing-data-area .daily-data .tests-as-of {
+    margin: 2rem 0 1rem 0;
+    padding: 1rem 0;
+}
+
+#testing-data-area .daily-data a {
+    text-decoration: underline;
+}
+
+.daily-data .daily-confirmed,
+.daily-data .daily-date {
+    grid-column: 1 / span 2;
+}
+
+/* Footer */
+
+.footer-row {
+    margin: 5rem 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-row i { margin: 0 0.75rem; }
+
+.footer-row .fa-github:hover { color: #24292E; }
+.footer-row .fa-twitter:hover { color: #1C9BE9; }
+
+/* Page - 2 */
+
+.head-content .state-info-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40%;
+    text-align: center;
+}
+
+.head-content .state-info-row .rest {
+    margin: 0.5rem 0;
+}
+
+.head-content .state-info-row .stats {
+    height: auto;
+}
+
+.extra-info-cards {
+    padding: 2rem 0;
+    font-size: 1.5rem;
+}
+
+.text-row a {
+    margin-left: 1rem;
+}
+
+.extra-info-cards .info-grid-area {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.extra-info-cards .info-grid-area .extra-row-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.extra-info-cards .info-grid-area .extra-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.grid-item-1, .grid-item-2, .grid-item-3, .grid-item-4, .grid-item-5 {
+    background: #F9FAFD;
+}
+
+#state-notes h3 { text-align: center; }
+
+#district-info-area .state-summary p {
+    margin-top: 1rem;
+}
+
+.district-name-item {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F9FAFD;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem
+}
+
+.district-population-item {
+    grid-row: 2;
+    grid-column: 1 / span 2;
+}
