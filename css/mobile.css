@@ -152,7 +152,7 @@ img {
 @media screen and (max-width: 400px) {
     .py-05 { padding: 0.25rem 0; }
 
-    #head-area { height: 125vh; }
+    #head-area { height: 130vh; }
 
     #head-area .logo-text { text-align: center; }
 
