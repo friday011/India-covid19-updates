@@ -150,6 +150,8 @@ img {
 }
 
 @media screen and (max-width: 400px) {
+    section { margin: 1rem 0; }
+
     .py-05 { padding: 0.25rem 0; }
 
     #head-area { height: 130vh; }
