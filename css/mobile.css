@@ -119,7 +119,7 @@ img {
     }
 
     #testing-data-area .daily-test-data .daily-search-row .search-items {
-        height: 8rem;
+        height: 6rem;
         display: flex;
         flex-direction: column;
         align-items: center;
